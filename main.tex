@@ -2,13 +2,122 @@
 \usepackage[utf8]{inputenc}
 
 \title{Schluss position paper}
-\author{Maurice Verheesen}
-\date{September 2019}
+\author{Maurice Verheesen \\ Marie-Jose Hoefmans}
+\date{September 2019 \\ v0.01 DRAFT}
+
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{5}
+\SetWatermarkColor[gray]{0.9}
 
 \begin{document}
 
 \maketitle
+\begin{abstract}
+% The Internet is lacking one giant thing: storage. It's this omission that is causing
+% a lot of problems with personal data these days. Personal data now needs to be in the hands of you yourself or somebody else, who then gains control over it.
+% 
+% Currently there are two modes of thinking about securing personal data. The first
+% premise is that it does not matter where the data actually resides. The second one
+% is the premise that it actually does matter where the data is.
+% 
+% Choosing a point of view determines a lot of design choices. For instance, if it
+% does not matter where the data is, solutions to enable security focus on strong
+% encryption. One of the most interesting developments in this area are the homo- and
+% polymorphic encryption solutions that are being developed. Also blockchain-esque solutions fall in this category.
+% 
+% If it does matter where the data resides, a solutions becomes more compatible with
+% current European privacy regulation. For instance, according to this law organizations must give certain safeguards about the data storage. This makes it impossible for US companies to comply with European law, because of the regulation that allow the US government access to any data stored by an US based company. Solutions in this category are usually more traditional, based on "vaults" that reside in guarded clouds with
+% certain guarantees.
+% 
+% Most solutions try to lock people into some sort of platform or ecosystem. The reason for this is partly technical (much more easier to do identity, authorization and storage on one platform) and partly for business reasons. Since investors will only invest in organizations that return value. The value in this case being the lockin to a platform.
+% 
+% The future will decide which of the premises is the prevailing one. Our contribution
+% is the proposal for a hybrid solution and next to this, a ``trias politica'' for data
+% storage (and actually transfer). The hybrid part is based on the idea that the needs
+% to be distributed in order to gain independence of storage providers (no lockin). The ``trias politica'' is a requirement to ensure compatibility. Almost never has one platform one all users worldwide. We believe it's an illusion to think this way. So we need compatibility between storage solutions. Together these two ideas form a high level design (or way of thinking) for independent secure storage on the Internet.
+% 
+% These are the two contributions be set forth in this whitepaper.
+\end{abstract}
 
-\section{Introduction}
-Hello world!
+\tableofcontents
+
+% storage is lacking, vervelend want lockin door mega platvormen
+% welke data?
+% Analytics moet mogelijk blijven. Parallel met microservices en distributed fs, dat de trend
+% is juist analystics te doen op gedistribueerde data, alleen is toegang nodig.
+% informatie beveiliging CIA
+% legal 1 persoonsgegeven?
+% legal 2 waar staat de data
+%  conclusie: niet alles, maar zo goed mogelijke kluis
+%  
+%  adoptie voor gedistribueerde systemen laat te wensen over door netwerk effecten.
+%  scheiding der machten als oplossing voor deze netwerk effecten, waardoor de 
+%  compatability en trialability omhoog gaat. Daarnaast is UI/UX extreem belangrijk
+%  om de preceived benefit meteen duidelijk te maken.
+%  
+%  alternatieven:
+%  - bron data blijft bij bron, verwijzingen via LOD (Solid) of attributes (Sovrin, IRMA)
+%  - blockchain: maidsafe, filecoin, storj.io, storro
+%  - homo and polymorphic encryption, using encrypted data without the need to decrypt it
+%  
+% ontwerp:
+% 1 UI/UX: verhaal over naar de TV lopen, kastje in de hand
+% 2 scheiding van machten, beschrijving van de drie onderdelen:
+%       id
+%       auth
+%       stor
+% 3 eerste test ontwerp: beddenapp
+
+% \section{Problem statement}
+% ``The Web has steadily evolved into an ecosystem of large, corporate-controlled mega-platforms which intermediate speech online'' \cite{mit_techreport}. 
+% This has been a positive development, since these mega-platforms have enabled billions of people to share information. However the down side is in the word intermediate. Since these mega-platforms intermediate in our information exchange, they are creating a filter bubble \cite{Pariser:2011:FBI:2029079}. This filter bubble can lead to bias and censorship, since used algorithms to display information can't be audited and the mega-platforms present a "networked public sphere" that we often cannot oversee \cite{mit_techreport}. 
+% 
+% To tackle this influence, many in the tech community have fled to technology to save us \cite{save_internet}. However ``today’s mega-platforms are built on top of the Web’s already distributed and open protocol'' \cite{mit_techreport}. There are many new distributed storage and communication solutions designed today in the open source world. The problem is that many are not reaching a wide (enough) audience \cite{mit_techreport}.
+% % er bestaan alternatieven, maar niet popular. Waarom?
+% 
+% According to \cite{mit_techreport} ``the real issue to address is this natural tendency towards market consolidation''. They identify four challenges distributed systems face:
+% \begin{enumerate}
+%     \item Adoption; ease of use and network extranalities
+%     \item Security
+%     \item Monetization
+%     \item Resisting market consolidation
+% \end{enumerate}
+% In this article we only focus on the first two challenges. Other documents (marketing and business strategy) explain the latter two.
+% 
+\section{The problem (why)}
+Your personal data is stored at thousands of different places. You might ask why this is a problem? It's easier to understand if you consider what that personal data actually resembles. We see it as a digital twin (or at a minimum parts of your digital twin).
+(and) Your Digital twin has no home. Orphan, living at a lot of hostile step parents, for instance Google, AWS, Microsoft, but also government and semi-public institutions and also places you never even heard of (link to list of advertising companies). Sometimes your twin escapes or is actually kidnapped held for ransom like what happened at Equifax (and a link to all the data leaks). What if you had a home for your twin? Then you would want it to be under your control and make sure you are not evicted every week, needing to move all your stuff from the house to a new one. 
+
+\section{Mission (what)}
+You in control of your personal digital information (your digital twin).
+\subsection{Long retention}
+\subsection{Privacy}
+\subsection{Independent}
+
+\section{Vision (how)}
+Bring a standard of how PDM solutions should work. Should be independent (without any lockin), privacy sensitive and last for a long time (>30 years). How to get those things? Delve deeper into the problem of storage and access. -> whitepaper
+
+The how is following the way we see the next ten years unfold
+
+
+We identify three waves of change coming in the world. 
+
+\subsection{horizon 1}
+The first wave can be seen already. This wave manifests as the solutions that are currently on the market that enable you to share a single data item, usually valid for a short period of time. For instance, your age, or the fact if you are now older than 18, or your current credit score. There is a plethora of tools and ecosystems that provide these kinds of data exchange.
+
+\subsection{horizon 2}
+The second wave is that of the revival of the semantic web. There are research projects based on linked-data experimenting with general methods and endpoints to enable data exchange. Also people are working on shared ontologies to have a common language to correctly interpret the data. For instance in the Netherlands the MedMij.nl platform is creating an ontology and trust framework for healthcare data exchange. Another interesting emergent technology is the SOLID system of Tim Berners-Lee. Together with Web-ID this system enables users to manage their own data and identity on the web via linked-data based data exchanges. This is a big effort where lot's of people are currently doing research on this wave.
+
+\subsection{horizon 3}
+The third and final wave we for see is that the data is not stored in user or company or organisation managed data store, but actually independently in the Internet itself. Already distributed file systems are taking off. For instance the Inter Planetary File system is such a distributed data storage network spanning the world. By that time the ontologies will be far enough, the authorisation and identification systems will have been harmonized and there will be a large installed base of one or more distributed storage networks.
+
+\section{Schluss}
+We are working on making horizon 3 a reality.
+
+\bibliographystyle{plain}
+\bibliography{references}
 \end{document}
